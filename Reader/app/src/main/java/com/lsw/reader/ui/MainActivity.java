@@ -22,9 +22,9 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
     @BindView(R.id.rvp_indicator)
-    private RVPIndicator mRvpIndicator;
+    RVPIndicator mRvpIndicator;
     @BindView(R.id.viewpager)
-    private ViewPager mViewPager;
+    ViewPager mViewPager;
     // Fragment集合
     private List<Fragment> mTabContents;
     // Fragment适配器
