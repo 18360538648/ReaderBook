@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.lsw.reader.R;
+import com.lsw.reader.base.BaseActivity;
 import com.lsw.reader.ui.fragment.CommunityFragment;
 import com.lsw.reader.ui.fragment.FindFragment;
 import com.lsw.reader.ui.fragment.RecommendFragment;
@@ -20,7 +21,7 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     @BindView(R.id.rvp_indicator)
     RVPIndicator mRvpIndicator;
     @BindView(R.id.viewpager)
@@ -41,10 +42,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_main;
+    }
+
     /***
      * 初始化数据
      */
-    private void initDatas() {
+    @Override
+    public void initDatas() {
         mDatas = new ArrayList<>();
         mDatas = Arrays.asList(getResources().getStringArray(R.array.tab_name));
         mTabContents=new ArrayList<>();
@@ -56,7 +63,8 @@ public class MainActivity extends AppCompatActivity {
     /**
      * 初始化布局
      */
-    private void initViews(){
+    @Override
+    public void initViews(){
         fragmentPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
